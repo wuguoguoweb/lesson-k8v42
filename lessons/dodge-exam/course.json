@@ -1,0 +1,68 @@
+{
+  "id": "dodge-exam",
+  "version": 2,
+  "title": "躲考卷",
+  "summary": "移動滑鼠，帶著 Tatiana 躲開考卷，用計時挑戰自己。",
+  "audience": "國小四年級與 Scratch 初學者",
+  "duration": "建議 2～3 節課 · 每節 40 分鐘",
+  "topics": [
+    "移動",
+    "動畫",
+    "隨機",
+    "碰撞",
+    "計時"
+  ],
+  "cover": "assets/5cf65a9f942ca92c93915527ff9db1e6.svg",
+  "project": "project.sb3",
+  "lessonData": "lesson-data.js",
+  "scripts": "scripts.json",
+  "game": "game.html",
+  "tutorial": "tutorial.html",
+  "materials": {
+    "tatiana": [
+      [
+        "4eec0e1db92b8dea3e5bee25105e8f46.png",
+        "座標格線背景"
+      ],
+      [
+        "5cf65a9f942ca92c93915527ff9db1e6.svg",
+        "Tatiana-a"
+      ],
+      [
+        "91fb7d056beaf553ccec03d61d72c545.svg",
+        "Tatiana-b"
+      ],
+      [
+        "e207fd3f99e1db8c5d66f49446f27e37.svg",
+        "Tatiana-c"
+      ],
+      [
+        "e2ea6bbc6066574d4836e808a1c5f849.svg",
+        "Tatiana-d"
+      ]
+    ],
+    "exam": [
+      [
+        "b60090739bc8b1c3f176859c6df0dc06.svg",
+        "考卷 SVG"
+      ]
+    ]
+  },
+  "scriptLabels": {
+    "1": "第二段：動畫"
+  },
+  "legacyProgressKey": "dodge-exam-progress-v2",
+  "sourceNote": "教學依「躲考卷.sb3」整理，作者未提供。遊戲會載入作品資料與素材，使用者可從瀏覽器取得。分享前請先確認素材可使用並標註來源。",
+  "gameHeading": "考卷來了，快躲開！",
+  "runningMessage": "挑戰中：移動滑鼠，躲開考卷！",
+  "stoppedMessage": "已停止。若碰到考卷，挑戰就結束了！按「重新開始」再試一次。",
+  "player": {
+    "width": 480,
+    "height": 360,
+    "fps": 30,
+    "turbo": false,
+    "compiler": false,
+    "interpolation": false
+  },
+  "content": "content.json"
+}

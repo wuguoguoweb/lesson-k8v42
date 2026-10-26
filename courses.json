@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "courses": [
+    {
+      "id": "dodge-exam",
+      "config": "lessons/dodge-exam/course.json",
+      "game": "game.html",
+      "tutorial": "tutorial.html"
+    }
+  ]
+}
