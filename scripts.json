@@ -1,0 +1,18 @@
+[
+  {
+    "target": "Tatiana",
+    "code": "當 @greenFlag 被點擊\n定位到 x:(0) y:(0)\n重複無限次\n面朝 [鼠標 v] 向\n移動 (10) 點\n如果 <碰到 [考卷 v]？> 那麼\n停止 [全部 v]\n結束\n結束"
+  },
+  {
+    "target": "Tatiana",
+    "code": "當 @greenFlag 被點擊\n重複無限次\n造型換成下一個\n等待 (0.2) 秒\n結束"
+  },
+  {
+    "target": "考卷",
+    "code": "當 @greenFlag 被點擊\n定位到 x:(167) y:(-123)\n重複無限次\n滑行 (1) 秒到 [隨機 v] 位置\n結束"
+  },
+  {
+    "target": "計時",
+    "code": "當 @greenFlag 被點擊\n變數 [計時 v] 設為 (0)\n重複無限次\n等待 (1) 秒\n變數 [計時 v] 改變 (1)\n結束"
+  }
+]
