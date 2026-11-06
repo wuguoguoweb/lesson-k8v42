@@ -1,4 +1,5 @@
 import {loadCourse,loadLibrary,readJSON,escapeHTML as esc} from './course.js';
+import {mountKeyboardControls} from './keyboard-controls.js';
 export async function mountGame(url){
  const {course:c,resolve}=await loadCourse(url),app=document.querySelector('#app');
  document.title=c.title+'｜開始遊戲';
@@ -12,11 +13,18 @@ export async function mountGame(url){
   const options=c.player;player=new Scaffolding.Scaffolding();player.width=options.width;player.height=options.height;player.resizeMode='preserve-ratio';player.setup();player.appendTo(host);
   player.vm.setCompilerOptions({enabled:options.compiler});player.vm.setFramerate(options.fps);player.vm.setTurboMode(options.turbo);player.vm.setInterpolation(options.interpolation);
   const response=await fetch(resolve(c.project));if(!response.ok)throw Error('找不到原始作品');await player.loadProject(await response.arrayBuffer());
-  player.vm.runtime.on('PROJECT_RUN_STOP',()=>status.textContent=c.stoppedMessage||'已停止。按「重新開始」再試一次。');
-  controls.forEach(b=>b.disabled=false);status.textContent='準備好了！按「開始」，再將滑鼠移入舞台。';window.gamePlayer=player;
+  player.vm.runtime.on('PROJECT_RUN_STOP',()=>{
+   const stage=player.vm.runtime.getTargetForStage();
+   const atTitle=c.titleBackdrop&&stage?.getCostumes()[stage.currentCostume]?.name===c.titleBackdrop;
+   status.textContent=atTitle?c.runningMessage:(c.stoppedMessage||'已停止。按「重新開始」再試一次。');
+  });
+  if(c.playingMessage)player.vm.runtime.on('PROJECT_RUN_START',()=>status.textContent=c.playingMessage);
+  controls.forEach(b=>b.disabled=false);status.textContent=c.readyMessage||'準備好了！按「開始」，再將滑鼠移入舞台。';window.gamePlayer=player;
  }catch(error){console.error(error);status.textContent='載入失敗：'+error.message+'。請確認連線，重新整理再試。';return;}
- function start(){player.start();status.textContent=c.runningMessage||'遊戲進行中！';}
- controls[0].onclick=start;controls[1].onclick=()=>player.stopAll();controls[2].onclick=()=>{player.stopAll();start();};
+ const releaseKeys=c.keyboardControls?mountKeyboardControls(player,document.querySelector('.game-panel')):()=>{};
+ if(c.startLabel)controls[0].textContent=c.startLabel;
+ function start(){releaseKeys();player.start();status.textContent=c.runningMessage||'遊戲進行中！';if(c.keyboardControls)document.activeElement?.blur();}
+ controls[0].onclick=start;controls[1].onclick=()=>{releaseKeys();player.stopAll();};controls[2].onclick=()=>{player.stopAll();start();};
  document.querySelector('#fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.querySelector('.game-panel').requestFullscreen();}catch{status.textContent='瀏覽器未允許全螢幕，仍可在目前大小遊玩。';}};
  new ResizeObserver(()=>player.relayout()).observe(host);window.addEventListener('scroll',()=>player.relayout(),{passive:true});
  host.addEventListener('touchmove',event=>{event.preventDefault();const t=event.touches[0],r=host.getBoundingClientRect();player.vm.postIOData('mouse',{x:t.clientX-r.left,y:t.clientY-r.top,canvasWidth:r.width,canvasHeight:r.height,isDown:true});},{passive:false});

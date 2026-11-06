@@ -1,6 +1,7 @@
 import {loadCourse,loadLibrary,readJSON,siteURL,escapeHTML as esc} from './course.js';
 import {createProgress} from './progress.js';
 import {setupProjection} from './projection.js';
+import {renderDiagram} from './lesson-diagram.js';
 export async function mountTutorial(url){
  const {course:c,resolve}=await loadCourse(url);
  const [{lessons,stages,lessonCode},scripts,language,content]=await Promise.all([import(resolve(c.lessonData).href),readJSON(resolve(c.scripts)),readJSON(new URL('vendor/zh-tw.json',siteURL)),readJSON(resolve(c.content))]);
@@ -26,8 +27,16 @@ export async function mountTutorial(url){
    const legend=document.createElement('p');legend.className='new-cue';legend.textContent='★ 新增：圖旁有星號的積木，就是這次要加的。';
    const wrap=document.createElement('div');wrap.className='block-image';wrap.setAttribute('role','img');wrap.setAttribute('aria-label',`${scripts[l.script].target}的程式：${lessonCode(l,scripts)}`);const pre=document.createElement('pre');pre.className='blocks';pre.textContent=lessonCode(l,scripts,true);wrap.append(pre);card.append(heading,legend,wrap);scratchblocks.renderMatching('#lesson pre.blocks',{style:'scratch3',languages:['zh_tw'],scale:1});
   }
+  if(l.diagram)card.append(renderDiagram(l.diagram,resolve));
   if(l.extra){const template=templates.querySelector(`#${l.extra}-content`);if(!template)throw Error('缺少課程提示');card.append(template.content.cloneNode(true));}
   const test=document.createElement('p');test.className='test-cue';test.textContent=`${l.script!==undefined?'⚑ 綠旗測試':'✓ 完成檢查'}：${l.check}`;card.append(test);
+  if(l.explanation){
+   const box=document.createElement('details');box.className='code-insight';
+   const summary=document.createElement('summary');summary.textContent='程式小解密';box.append(summary);
+   const list=document.createElement('ul');for(const point of l.explanation.points){const item=document.createElement('li');item.textContent=point;list.append(item);}box.append(list);
+   if(l.explanation.example){const example=document.createElement('p');example.className='insight-example';example.textContent=l.explanation.example;box.append(example);}
+   card.append(box);
+  }
   const label=document.createElement('label');label.className='check';label.style.display='block';const input=document.createElement('input');input.type='checkbox';input.checked=progress.has(l.id);input.onchange=()=>{const ok=progress.set(l.id,input.checked);saved.textContent=ok?'完成紀錄已保存在這個瀏覽器。':'無法保存紀錄，仍可繼續學習。';renderNav();};label.append(input,document.createTextNode(' 我完成這一步了'));card.append(label);
   document.querySelector('#counter').textContent=`${index+1} / ${lessons.length}`;document.querySelector('#previous').disabled=index===0;document.querySelector('#next').disabled=index===lessons.length-1;
  }

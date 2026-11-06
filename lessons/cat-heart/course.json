@@ -1,0 +1,56 @@
+{
+  "id": "cat-heart",
+  "version": 1,
+  "title": "小貓愛心大作戰",
+  "summary": "用方向鍵帶小貓吃愛心、躲蝙蝠，讓生命增加到 10！",
+  "audience": "國小四年級與 Scratch 初學者",
+  "duration": "建議分多節課完成，每次練習一個階段",
+  "topics": [
+    "方向鍵",
+    "廣播",
+    "碰色",
+    "變數",
+    "音效",
+    "勝敗判斷"
+  ],
+  "cover": "assets/a4157231b105ee865697025fc1d9d985.svg",
+  "project": "project.sb3",
+  "lessonData": "lesson-data.js",
+  "scripts": "scripts.json",
+  "content": "content.json",
+  "game": "game.html",
+  "tutorial": "tutorial.html",
+  "materials": {
+    "backgrounds": [
+      [
+        "6fc27862af8bf3e4bade6b74030f06d8.png",
+        "小貓愛心大作戰開始畫面"
+      ],
+      [
+        "995a36a60e13bb76ce4d3e3b85178d15.png",
+        "遊戲背景"
+      ]
+    ]
+  },
+  "scriptLabels": {
+    "4": "移動與碰撞",
+    "5": "另一段：動畫"
+  },
+  "sourceNote": "依使用者提供的「Scratch 專案 小貓愛心大作戰 加音效版.sb3」製作；作者與素材授權未提供。背景採用作品內含紫色牆壁的版本。播放器忠實載入原作，沒有改變遊戲規則。候選版內的作品資料可由瀏覽器取得；尚未公開發布。",
+  "gameHeading": "吃愛心，躲蝙蝠！",
+  "startLabel": "⚑ 綠旗／回標題",
+  "readyMessage": "準備好了！先按「綠旗／回標題」，再按空白鍵或下方「空白鍵開始」。",
+  "runningMessage": "標題畫面：按空白鍵開始，再用方向鍵移動。遊戲中再次按空白鍵會重新初始化。",
+  "stoppedMessage": "已停止。按綠旗回標題，再按空白鍵重新挑戰。",
+  "keyboardControls": true,
+  "player": {
+    "width": 480,
+    "height": 360,
+    "fps": 30,
+    "turbo": false,
+    "compiler": false,
+    "interpolation": false
+  },
+  "titleBackdrop": "小貓愛心大作戰開始畫面",
+  "playingMessage": "遊戲中：方向鍵移動，吃愛心、躲蝙蝠！"
+}

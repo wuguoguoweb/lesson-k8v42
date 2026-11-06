@@ -14,6 +14,27 @@
 .tutorial-page .step-card{overflow-wrap:anywhere}
 @media(max-width:800px){.tutorial-page .step-nav{max-height:none;overflow-y:visible;gap:16px}.tutorial-page .stage-group{flex:0 0 auto}.tutorial-page .stage-title{margin-top:0}.tutorial-page .lesson-controls button{padding:10px 12px}.tutorial-page .lesson-controls{align-items:center}.tutorial-page #counter{white-space:nowrap}}
 .tutorial-page .lesson-layout>div{min-width:0}
+.tutorial-page .code-insight{background:#f3f6ef;margin:20px 0;padding:16px 20px}
+.tutorial-page .code-insight summary{color:var(--teal)}
+.tutorial-page .code-insight ul{padding-left:1.4em;margin-bottom:12px}
+.tutorial-page .code-insight .insight-example{border-left:3px solid var(--teal);padding-left:14px;margin-bottom:0}
+.tutorial-page .lesson-diagram{margin:24px 0;padding:18px;background:#f8faf5;border:1px solid var(--border);border-radius:16px}
+.tutorial-page .lesson-diagram h3{font-size:18px;margin:0 0 14px;color:var(--teal)}
+.tutorial-page .lesson-diagram figcaption{font-size:15px;margin-top:14px;color:var(--muted)}
+.diagram-sequence{display:grid;gap:12px}.diagram-two{grid-template-columns:repeat(2,minmax(0,1fr))}.diagram-three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.diagram-panel{min-width:0;border-radius:12px;background:white;padding:12px;border:1px solid var(--border)}
+.diagram-panel-title{font-size:15px;font-weight:bold;margin:0 0 10px}.diagram-number{display:inline-grid;place-items:center;width:25px;height:25px;background:#fff0bd;border-radius:50%;color:var(--ink)}
+.diagram-stage{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--border);font-family:inherit}
+.diagram-stage-wrap{position:relative;min-width:0}.diagram-monitor-layout{display:grid;grid-template-columns:160px minmax(0,1fr);align-items:center;gap:16px;max-width:620px;margin:auto}
+.diagram-variable-list p{font-size:15px;margin:10px 0}.diagram-variable-list small{display:block;color:var(--muted);padding-left:30px}
+.diagram-tick{display:inline-grid;place-items:center;width:20px;height:20px;background:#ff8c1a;color:white;border:1px solid #b45e09;border-radius:4px;font-size:15px;line-height:1;vertical-align:middle}.diagram-tick.is-off{background:white;border-color:var(--muted)}
+.diagram-monitor{position:absolute;right:3%;top:4%;display:flex;align-items:center;gap:8px;padding:3px 6px;background:#f1f3f5;border:1px solid #b7bec5;border-radius:6px;font-size:14px;line-height:1.4;font-weight:bold}.diagram-monitor strong{background:#ff8c1a;color:white;border-radius:8px;min-width:30px;text-align:center;padding:0 5px}
+.diagram-collision-actors{display:flex;align-items:center;justify-content:center;min-height:125px}.diagram-collision-actors img{width:40%;max-width:72px;height:75px;object-fit:contain}.diagram-collision-actors svg{width:24px;flex-shrink:0;height:42px}
+.diagram-values{display:flex;align-items:center;justify-content:center;gap:10px;min-height:125px}.diagram-values span{text-align:center}.diagram-values small{display:block;font-size:14px}.diagram-values strong{display:block;background:#fff0bd;border-radius:12px;min-width:40px;font-size:28px;line-height:1.5}.diagram-values b{font-size:24px;color:var(--teal)}
+.diagram-coordinate{font-size:13px;text-align:center;margin:6px 0 0}
+.projection .lesson-diagram{max-width:1000px}.projection .lesson-diagram h3{font-size:24px}.projection .lesson-diagram figcaption,.projection .diagram-panel-title{font-size:20px}
+@media(max-width:600px){.diagram-two,.diagram-three,.diagram-monitor-layout{grid-template-columns:minmax(0,1fr)}.tutorial-page .lesson-diagram{padding:14px}.diagram-variable-list{display:flex;flex-wrap:wrap;gap:10px 20px}.diagram-variable-list>p:first-child{flex-basis:100%;margin-bottom:0}.diagram-variable-list small{display:inline;padding-left:6px}.diagram-panel .diagram-stage{max-width:360px;margin:auto}.diagram-collision-actors,.diagram-values{min-height:90px}}
 @media(max-width:800px){.tutorial-page .lesson-layout{grid-template-columns:minmax(0,1fr)}}
 /* 課程列表共用排版 */
+.keyboard-controls{width:100%;margin-top:12px}.keyboard-controls p{font-size:14px}.key-pad{display:grid;grid-template-columns:repeat(3,minmax(0,64px));gap:8px;justify-content:center}.key-pad button{touch-action:none;user-select:none;min-height:48px;padding:10px}.key-pad .space-key{grid-column:1/-1}.key-pad [data-key=ArrowUp]{grid-column:2}.key-pad [data-key=ArrowLeft]{grid-column:1}
 .catalog-intro{padding:12px 0 28px}.catalog-intro h1{font-size:clamp(32px,4.5vw,56px)}.course-list{display:grid;gap:24px}.course-card{display:grid;grid-template-columns:220px minmax(0,1fr);gap:32px;align-items:center}.course-card h2{margin:0}.course-cover{background:#fff0bd;border-radius:20px;min-height:220px;display:grid;place-items:center}.course-cover img{max-width:150px;max-height:180px}.course-card .actions{margin-bottom:0}.course-card .tag{display:inline-block;margin:3px 0}.course-card .note{font-size:15px}.course-list>*,.course-card>div{min-width:0}@media(max-width:600px){.course-card{grid-template-columns:minmax(0,1fr);gap:16px}.course-cover{min-height:150px}.course-cover img{max-height:130px}.catalog-intro{padding-top:0}}

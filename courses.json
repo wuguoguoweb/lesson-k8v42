@@ -6,6 +6,12 @@
       "config": "lessons/dodge-exam/course.json",
       "game": "game.html",
       "tutorial": "tutorial.html"
+    },
+    {
+      "id": "cat-heart",
+      "config": "lessons/cat-heart/course.json",
+      "game": "lessons/cat-heart/game.html",
+      "tutorial": "lessons/cat-heart/tutorial.html"
     }
   ]
 }
