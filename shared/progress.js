@@ -10,6 +10,14 @@ export function createProgress(course,stepIds,storage){
   else if(course.legacyProgressKey){
    completed=valid(JSON.parse(storage.getItem(course.legacyProgressKey)||'[]'));
    storage.setItem(key,JSON.stringify(completed));
+  }else if(course.progressMigrations){
+   const migrated=[];
+   for(const migration of course.progressMigrations){
+    const old=JSON.parse(storage.getItem(migration.key)||'[]');
+    if(!Array.isArray(old))continue;
+    for(const [id,required] of Object.entries(migration.steps))if(required.length&&required.every(previous=>old.includes(previous)))migrated.push(id);
+   }
+   completed=valid(migrated);storage.setItem(key,JSON.stringify(completed));
   }
  }catch{available=false;}
  return {key,has:id=>completed.includes(id),set(id,checked){

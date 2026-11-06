@@ -1,8 +1,8 @@
 {
   "id": "cat-heart",
   "version": 1,
-  "title": "小貓愛心大作戰",
-  "summary": "用方向鍵帶小貓吃愛心、躲蝙蝠，讓生命增加到 10！",
+  "title": "小綠愛心大作戰",
+  "summary": "用方向鍵帶小綠吃愛心、躲飛行敵人，讓生命增加到 10！",
   "audience": "國小四年級與 Scratch 初學者",
   "duration": "建議分多節課完成，每次練習一個階段",
   "topics": [
@@ -13,7 +13,7 @@
     "音效",
     "勝敗判斷"
   ],
-  "cover": "assets/a4157231b105ee865697025fc1d9d985.svg",
+  "cover": "assets/e39437b512670e1f1c161ee5c5e23061.svg",
   "project": "project.sb3",
   "lessonData": "lesson-data.js",
   "scripts": "scripts.json",
@@ -27,17 +27,68 @@
         "小貓愛心大作戰開始畫面"
       ],
       [
-        "995a36a60e13bb76ce4d3e3b85178d15.png",
-        "遊戲背景"
+        "2355f82cb2e08a72ef0cd905754f5fbc.svg",
+        "game-background-night"
+      ]
+    ],
+    "green": [
+      [
+        "e39437b512670e1f1c161ee5c5e23061.svg",
+        "walk-1"
+      ],
+      [
+        "1305a6d6d48c0657b6615abe35f31b42.svg",
+        "walk-2"
+      ],
+      [
+        "fb00e44b4e174f101c22c5b67177bfe9.svg",
+        "walk-3"
+      ],
+      [
+        "566e8eb3f447d12b673b2174328fc382.svg",
+        "walk-4"
+      ]
+    ],
+    "enemy": [
+      [
+        "39eda32f9b159ba03480a758c23d9079.svg",
+        "enemy-fly-1"
+      ],
+      [
+        "829dd9222f8f89e08c03b5da164a2ba3.svg",
+        "enemy-fly-2"
+      ],
+      [
+        "f493a50db553465948233cee0cfc7537.svg",
+        "enemy-fly-3"
+      ]
+    ],
+    "heart": [
+      [
+        "0fba767eee4ba2b6e6df65435d2ca4df.svg",
+        "heart-1"
+      ],
+      [
+        "9ed59ea5504eb56fff5be4e608cd2e78.svg",
+        "heart-2"
+      ],
+      [
+        "cd45b5f423406c54c5cd88fd63ef0636.svg",
+        "heart-3"
+      ],
+      [
+        "e35b65065e8d3b2f7d73753f8c146e51.svg",
+        "heart-4"
       ]
     ]
   },
   "scriptLabels": {
-    "4": "移動與碰撞",
-    "5": "另一段：動畫"
+    "4": "另一段：小綠動畫",
+    "5": "移動與碰撞",
+    "12": "另一段：愛心動畫"
   },
-  "sourceNote": "依使用者提供的「Scratch 專案 小貓愛心大作戰 加音效版.sb3」製作；作者與素材授權未提供。背景採用作品內含紫色牆壁的版本。播放器忠實載入原作，沒有改變遊戲規則。候選版內的作品資料可由瀏覽器取得；尚未公開發布。",
-  "gameHeading": "吃愛心，躲蝙蝠！",
+  "sourceNote": "依新版「Scratch 專案 小綠愛心大作戰 加音效版 (1).sb3」整理。原作標題圖片仍保留小貓文字；作者與素材授權未提供。播放器忠實載入新版原作，素材可由瀏覽器取得。",
+  "gameHeading": "吃愛心，躲敵人！",
   "startLabel": "⚑ 綠旗／回標題",
   "readyMessage": "準備好了！先按「綠旗／回標題」，再按空白鍵或下方「空白鍵開始」。",
   "runningMessage": "標題畫面：按空白鍵開始，再用方向鍵移動。遊戲中再次按空白鍵會重新初始化。",
@@ -52,5 +103,10 @@
     "interpolation": false
   },
   "titleBackdrop": "小貓愛心大作戰開始畫面",
-  "playingMessage": "遊戲中：方向鍵移動，吃愛心、躲蝙蝠！"
+  "playingMessage": "遊戲中：方向鍵移動，吃愛心、躲飛行敵人！",
+  "playerNames": {
+    "hero": "walk-1",
+    "enemy": "enemy-fly-1",
+    "heart": "heart-1"
+  }
 }

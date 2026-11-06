@@ -14,6 +14,11 @@
 .tutorial-page .step-card{overflow-wrap:anywhere}
 @media(max-width:800px){.tutorial-page .step-nav{max-height:none;overflow-y:visible;gap:16px}.tutorial-page .stage-group{flex:0 0 auto}.tutorial-page .stage-title{margin-top:0}.tutorial-page .lesson-controls button{padding:10px 12px}.tutorial-page .lesson-controls{align-items:center}.tutorial-page #counter{white-space:nowrap}}
 .tutorial-page .lesson-layout>div{min-width:0}
+.projection .session-overview{display:none}.session-overview>.session-plans{margin-bottom:0}.blocks-jump{margin:8px 0}.block-image{scroll-margin-top:20px}.block-image[data-rendered=error]{border:2px solid #b84825;background:#fff1eb;color:#8b3317;padding:18px}
+.fit-blocks .block-image svg{max-width:100%;height:auto}.fit-blocks .block-image.actual-size svg{max-width:none}.blocks-size{font-size:14px;padding:8px 12px}
+.session-plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:28px 0}.session-plan{min-width:0;background:white;border:1px solid var(--border);border-radius:16px;padding:18px}.session-plan h2{font-size:20px;margin-top:0}.session-plan ul{font-size:15px;padding-left:22px}.session-plan .tag{display:inline-block;margin:0}.projection .session-plans{display:none}
+.diagram-broadcast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:center}.diagram-sender{display:grid;justify-items:center;gap:8px;background:#fff0bd;border-radius:16px;padding:22px;text-align:center}.diagram-sender>span:first-child{font-size:38px}.diagram-receivers{display:grid;gap:10px}.diagram-receiver{display:flex;gap:14px;align-items:center;border:1px solid var(--border);background:white;border-radius:12px;padding:10px 14px}.diagram-receiver>span{font-size:26px;color:var(--teal)}.diagram-receiver p{font-size:14px;margin:0;color:var(--muted)}
+@media(max-width:800px){.session-plans{grid-template-columns:minmax(0,1fr)}}@media(max-width:600px){.diagram-broadcast{grid-template-columns:minmax(0,1fr)}.diagram-receiver>span{transform:rotate(90deg)}}
 .tutorial-page .code-insight{background:#f3f6ef;margin:20px 0;padding:16px 20px}
 .tutorial-page .code-insight summary{color:var(--teal)}
 .tutorial-page .code-insight ul{padding-left:1.4em;margin-bottom:12px}
