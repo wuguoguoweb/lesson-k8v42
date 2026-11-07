@@ -12,6 +12,12 @@
       "config": "lessons/cat-heart/course.json",
       "game": "lessons/cat-heart/game.html",
       "tutorial": "lessons/cat-heart/tutorial.html"
+    },
+    {
+      "id": "flappy-bird",
+      "config": "lessons/flappy-bird/course.json",
+      "game": "lessons/flappy-bird/game.html",
+      "tutorial": "lessons/flappy-bird/tutorial.html"
     }
   ]
 }

@@ -23,7 +23,7 @@ export async function mountGame(url){
  }catch(error){console.error(error);status.textContent='載入失敗：'+error.message+'。請確認連線，重新整理再試。';return;}
  const releaseKeys=c.keyboardControls?mountKeyboardControls(player,document.querySelector('.game-panel')):()=>{};
  if(c.startLabel)controls[0].textContent=c.startLabel;
- function start(){releaseKeys();player.start();status.textContent=c.runningMessage||'遊戲進行中！';if(c.keyboardControls)document.activeElement?.blur();}
+ function start(){releaseKeys();player.start();status.textContent=c.runningMessage||'遊戲進行中！';if(c.keyboardControls||c.keyboardInput)document.activeElement?.blur();}
  controls[0].onclick=start;controls[1].onclick=()=>{releaseKeys();player.stopAll();};controls[2].onclick=()=>{player.stopAll();start();};
  document.querySelector('#fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.querySelector('.game-panel').requestFullscreen();}catch{status.textContent='瀏覽器未允許全螢幕，仍可在目前大小遊玩。';}};
  new ResizeObserver(()=>player.relayout()).observe(host);window.addEventListener('scroll',()=>player.relayout(),{passive:true});

@@ -1,0 +1,80 @@
+{
+  "id": "flappy-bird",
+  "version": 1,
+  "title": "Flappy Bird 飛翔小鳥",
+  "summary": "按空白鍵拍翅，穿過水管的缺口，挑戰更高分！",
+  "audience": "國小四年級",
+  "duration": "4 節課，每節 40 分鐘",
+  "topics": [
+    "速度與重力",
+    "廣播",
+    "分身",
+    "隨機高度",
+    "碰撞",
+    "加分"
+  ],
+  "cover": "assets/082f371c206f07d20e53595a9c69cc22.svg",
+  "project": "project.sb3",
+  "lessonData": "lesson-data.js",
+  "scripts": "scripts.json",
+  "content": "content.json",
+  "game": "game.html",
+  "tutorial": "tutorial.html",
+  "materials": {
+    "backgrounds": [
+      [
+        "e7c147730f19d284bcd7b3f00af19bb6.svg",
+        "Blue Sky｜原作背景"
+      ]
+    ],
+    "bird": [
+      [
+        "082f371c206f07d20e53595a9c69cc22.svg",
+        "Parrot-a｜造型中心 (86,106)"
+      ],
+      [
+        "036fad20b674197358f8c0b2dc64e17e.svg",
+        "Parrot-b｜造型中心 (49,31)"
+      ]
+    ],
+    "pipe": [
+      [
+        "pipe.sprite3",
+        "水管角色｜只有造型，沒有程式"
+      ]
+    ],
+    "spriteDownloads": [
+      [
+        "parrot.sprite3",
+        "鸚鵡角色｜保留造型中心，沒有程式"
+      ]
+    ]
+  },
+  "player": {
+    "width": 480,
+    "height": 360,
+    "fps": 30,
+    "turbo": false,
+    "compiler": false,
+    "interpolation": false
+  },
+  "startLabel": "⚑ 綠旗開始",
+  "readyMessage": "按綠旗立即開始，再連按空白鍵維持飛行。需使用鍵盤。",
+  "runningMessage": "空白鍵拍翅；碰水管或 y 小於 −165 就結束。按綠旗重玩。",
+  "stoppedMessage": "已停止。按綠旗或重新開始再玩一次。",
+  "sourceNote": "本課程參考大魏老師的資訊課程《Scratch 3.0｜10 飛翔小鳥》，並依教學需求重新編排。核心原理說明參考《Scratch 遊戲設計教學指引：Flappy Bird 核心原理解析》，以所提供 sb3 為準。角色、背景使用所提供原作素材，水管為隨課提供素材；不代表原始教學網站授權全文轉載。本作沒有播放音效的程式。",
+  "teachingSource": {
+    "label": "原始教學｜大魏老師：Scratch 3.0｜10 飛翔小鳥",
+    "url": "https://student.coolsea.net/程式設計-scratch/scratch3-10-flappy-bird/"
+  },
+  "scriptLabels": [
+    "綠旗、速度與結束判斷",
+    "空白鍵拍翅",
+    "結束訊息",
+    "水管本體隱藏",
+    "製造分身",
+    "分身移動、得分與刪除",
+    "水管結束處理"
+  ],
+  "keyboardInput": true
+}

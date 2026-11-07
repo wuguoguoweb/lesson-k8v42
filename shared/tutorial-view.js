@@ -11,13 +11,14 @@ export async function mountTutorial(url){
  const app=document.querySelector('#app');
  app.innerHTML=`<button class="secondary project-button" id="projection" aria-pressed="false">⛶ 開啟投影模式</button><section class="intro"><p class="eyebrow">MAKE / ${esc(c.title)}</p><h1>一起做出「${esc(c.title)}」</h1><p class="lead">${stages.length} 個階段、${lessons.length} 個小步驟。一次加一段，按綠旗試試看。</p><p>適合${esc(c.audience)} · ${esc(c.duration)}<br>本課會用到：${c.topics.map(esc).join('、')}。</p></section><div class="lesson-layout"><nav class="step-nav" aria-label="教學步驟" id="steps"></nav><div><article class="panel step-card" id="lesson" aria-live="polite"></article><div class="lesson-controls"><button id="previous" class="secondary">← 上一步</button><span id="counter"></span><button id="next">下一步 →</button></div><p id="saved" role="status"></p></div></div><section class="lesson-extra"><h2>素材與來源</h2><p>${esc(c.sourceNote)}</p></section>`;
  const templates=document.createElement('div');templates.innerHTML=content.extras;
+ if(c.teachingSource){const a=document.createElement('a');a.className='text-link';a.textContent=c.teachingSource.label;const u=new URL(c.teachingSource.url);if(u.protocol!=='https:')throw Error('來源需使用 HTTPS');a.href=u.href;app.querySelector('.lesson-extra').append(a);}
  if(tutorialMeta.sessionPlans){
   const intro=app.querySelector('.intro');
   intro.querySelector('.lead').textContent=`${stages.length} 節課、${lessons.length} 個小步驟。${tutorialMeta.lead}`;
   intro.querySelector('p:not([class])').innerHTML=`適合${esc(tutorialMeta.audience)} · ${esc(tutorialMeta.duration)}<br>本課會用到：${c.topics.map(esc).join('、')}。`;
   const note=document.createElement('p');note.className='note';note.textContent=tutorialMeta.note;intro.append(note);
-  const plans=document.createElement('details');plans.className='session-overview';plans.setAttribute('aria-label','三節課安排');
-  plans.innerHTML='<summary>查看三節課安排（每節 40 分鐘）</summary><div class="session-plans">'+tutorialMeta.sessionPlans.map(p=>`<article class="session-plan"><h2>${esc(p.title)}</h2><p class="tag">${p.minutes} 分鐘</p><p>${esc(p.goal)}</p><ul>${p.timing.map(t=>`<li>${esc(t)}</li>`).join('')}</ul><p class="note">${esc(p.carry)}</p></article>`).join('')+'</div>';intro.after(plans);
+  const plans=document.createElement('details');plans.className='session-overview';const planTitle=stages.length===3?'三節課安排':`${stages.length} 節課安排`;plans.setAttribute('aria-label',planTitle);
+  plans.innerHTML=`<summary>查看${planTitle}（每節 40 分鐘）</summary><div class="session-plans">`+tutorialMeta.sessionPlans.map(p=>`<article class="session-plan"><h2>${esc(p.title)}</h2><p class="tag">${p.minutes} 分鐘</p><p>${esc(p.goal)}</p><ul>${p.timing.map(t=>`<li>${esc(t)}</li>`).join('')}</ul><p class="note">${esc(p.carry)}</p></article>`).join('')+'</div>';intro.after(plans);
  }
  const card=document.querySelector('#lesson'),nav=document.querySelector('#steps'),saved=document.querySelector('#saved');
  const progress=createProgress({...c,...tutorialMeta.progress},lessons.map(l=>l.id));let index=0;
